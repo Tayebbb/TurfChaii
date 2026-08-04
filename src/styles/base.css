@@ -1,0 +1,44 @@
+﻿/* ---------- Base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--font-body); font-size:15px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+  -webkit-tap-highlight-color:transparent;
+}
+/* Soft crossfade while the theme flips (class added briefly by turfchai.js) */
+html.theme-switching,html.theme-switching *,html.theme-switching *::before,html.theme-switching *::after{
+  transition:background-color .32s var(--ease),color .32s var(--ease),border-color .32s var(--ease),box-shadow .32s var(--ease),fill .32s var(--ease)!important;
+}
+main,.shell .main{animation:pagein .45s var(--ease-out)}
+@keyframes pagein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+::selection{background:var(--brand-soft)}
+h1,h2,h3,h4{font-family:var(--font-display); line-height:1.2; margin:0 0 8px; letter-spacing:-.022em}
+h1{font-size:31px; font-weight:800}
+h2{font-size:22px; font-weight:800}
+h3{font-size:17px; font-weight:700}
+h4{font-size:15px; font-weight:700}
+p{margin:0 0 8px}
+a{color:var(--brand); text-decoration:none; transition:color var(--dur) var(--ease),opacity var(--dur) var(--ease)}
+a:hover{text-decoration:underline}
+img,svg{display:block}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--brand); outline-offset:2px; border-radius:4px}
+.btn:active,.chip:active{transform:scale(.98)}
+*{scrollbar-width:thin;scrollbar-color:var(--border-strong) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:8px;border:3px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-track{background:transparent}
+.num,.price,td.num,.table td{font-variant-numeric:tabular-nums}
+.muted{color:var(--text-2)} .subtle{color:var(--text-3); font-size:13px}
+.small{font-size:13px} .tiny{font-size:12px}
+.bold{font-weight:600} .heavy{font-weight:700}
+.center{text-align:center}
+hr{border:none;border-top:1px solid var(--border);margin:16px 0}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
